@@ -1,0 +1,7 @@
+Self-hosted webfonts (SIL Open Font License 1.1):
+
+- OpenDyslexic — Abbie Gonzalez / opendyslexic.org
+- Atkinson Hyperlegible — Braille Institute
+- Inter — The Inter Project Authors
+
+These files are included so the reader can load fonts without a third-party CSS CDN at runtime.

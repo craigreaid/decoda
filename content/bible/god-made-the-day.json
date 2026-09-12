@@ -1,0 +1,28 @@
+{
+  "slug": "god-made-the-day",
+  "title": "God Made the Day",
+  "level": 1,
+  "brand": "bible",
+  "pages": [
+    {
+      "id": "p1",
+      "body": "God made the sun.\nGod made the day.\nIt is a big day.",
+      "focusWords": ["God", "made", "day", "sun"]
+    },
+    {
+      "id": "p2",
+      "body": "God made the land.\nGod made the sand.\nThe land is good.",
+      "focusWords": ["land", "sand", "good"]
+    },
+    {
+      "id": "p3",
+      "body": "God made the cat.\nGod made the hen.\nGod made the dog.",
+      "focusWords": ["cat", "hen", "dog"]
+    },
+    {
+      "id": "p4",
+      "body": "God made the man.\nGod is good.\nWe can see God is good.",
+      "focusWords": ["man", "good", "see"]
+    }
+  ]
+}
