@@ -1,8 +1,8 @@
+import { SoftRedirect } from "@/components/brand/SoftRedirect";
 import { ReaderShell } from "@/components/reader/ReaderShell";
-import { clampPage } from "@/lib/href";
+import { clampPage, withBrandQuery } from "@/lib/href";
 import { getStoryBySlug } from "@/lib/stories";
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
 import { Suspense } from "react";
 
 type ReadPageProps = {
@@ -26,8 +26,7 @@ export default async function ReadPage({ params, searchParams }: ReadPageProps) 
   const story = getStoryBySlug(slug);
 
   if (!story) {
-    const brand = query.brand ? `?brand=${query.brand}` : "";
-    redirect(`/library${brand}`);
+    return <SoftRedirect href={withBrandQuery("/library", query.brand)} />;
   }
 
   const initialPage = clampPage(Number(query.page ?? 1), story.pages.length);

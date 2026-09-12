@@ -31,7 +31,7 @@ export function AudioControl({
       <span aria-hidden="true" className="text-base leading-none">
         {playing && !paused ? "❚❚" : "▶"}
       </span>
-      <span className="hidden sm:inline">{label}</span>
+      <span>{label}</span>
     </button>
   );
 }

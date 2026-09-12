@@ -60,10 +60,15 @@ export function PageNav({
                 aria-current={current ? "page" : undefined}
                 onClick={() => onSelect(pageNumber)}
                 className={cn(
-                  "min-h-tap min-w-tap rounded-full",
-                  current ? "bg-accent" : "bg-line",
+                  "grid min-h-tap min-w-tap place-items-center rounded-full",
                 )}
               >
+                <span
+                  className={cn(
+                    "block h-3 w-3 rounded-full",
+                    current ? "bg-accent" : "bg-line",
+                  )}
+                />
                 <span className="sr-only">Page {pageNumber}</span>
               </button>
             </li>
