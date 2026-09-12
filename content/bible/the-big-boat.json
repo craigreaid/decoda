@@ -1,0 +1,28 @@
+{
+  "slug": "the-big-boat",
+  "title": "The Big Boat",
+  "level": 1,
+  "brand": "bible",
+  "pages": [
+    {
+      "id": "p1",
+      "body": "God said to Noah.\nGet a big boat.\nNoah can get it.",
+      "focusWords": ["God", "said", "Noah", "boat"]
+    },
+    {
+      "id": "p2",
+      "body": "Rain is on the land.\nIt is a big rain.\nNoah is in the boat.",
+      "focusWords": ["rain", "land", "boat"]
+    },
+    {
+      "id": "p3",
+      "body": "A cat is in the boat.\nA dog is in the boat.\nA hen is in the boat.",
+      "focusWords": ["cat", "dog", "hen"]
+    },
+    {
+      "id": "p4",
+      "body": "The rain can stop.\nThe boat is on the sand.\nGod is good to Noah.",
+      "focusWords": ["stop", "sand", "good", "Noah"]
+    }
+  ]
+}

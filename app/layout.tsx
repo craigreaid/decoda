@@ -1,0 +1,40 @@
+import { BrandThemeProvider } from "@/components/brand/BrandThemeProvider";
+import { atkinson, inter, openDyslexic } from "@/app/fonts";
+import { getRequestBrandConfig } from "@/lib/brand/server";
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import "./globals.css";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const brand = await getRequestBrandConfig();
+  return {
+    title: {
+      default: brand.displayName,
+      template: `%s · ${brand.displayName}`,
+    },
+    description: brand.copy.tagline,
+    applicationName: brand.displayName,
+  };
+}
+
+export default async function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const brand = await getRequestBrandConfig();
+
+  return (
+    <html
+      lang="en"
+      data-brand={brand.id}
+      className={`${openDyslexic.variable} ${atkinson.variable} ${inter.variable}`}
+    >
+      <body className="font-chrome antialiased">
+        <BrandThemeProvider initialBrandId={brand.id}>
+          <Suspense fallback={null}>{children}</Suspense>
+        </BrandThemeProvider>
+      </body>
+    </html>
+  );
+}

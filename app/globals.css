@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+[data-brand="bible"] {
+  --canvas: #f7f0e4;
+  --text-primary: #1f1a14;
+  --accent: #0f5c62;
+}
+
+[data-brand="quran"] {
+  --canvas: #eef5f0;
+  --text-primary: #14201a;
+  --accent: #1f6b4a;
+}
+
+[data-brand="torah"] {
+  --canvas: #f3eee6;
+  --text-primary: #1a1814;
+  --accent: #243b6b;
+}
+
+:root,
+[data-brand] {
+  --chrome: color-mix(in srgb, var(--canvas) 86%, var(--text-primary));
+  --text-muted: color-mix(in srgb, var(--text-primary) 72%, var(--canvas));
+  --line: color-mix(in srgb, var(--text-primary) 16%, var(--canvas));
+  --accent-soft: color-mix(in srgb, var(--accent) 16%, var(--canvas));
+  --follow-highlight: color-mix(in srgb, var(--accent) 24%, var(--canvas));
+  --on-accent: #ffffff;
+  --shadow: color-mix(in srgb, var(--text-primary) 12%, transparent);
+  --font-chrome: var(--font-atkinson), Verdana, sans-serif;
+}
+
+[data-brand="bible"][data-contrast="high"] {
+  --canvas: #fff8ec;
+  --text-primary: #110e0a;
+  --accent: #084247;
+}
+
+[data-brand="quran"][data-contrast="high"] {
+  --canvas: #f4fff8;
+  --text-primary: #0b140f;
+  --accent: #145338;
+}
+
+[data-brand="torah"][data-contrast="high"] {
+  --canvas: #fffaf2;
+  --text-primary: #100e0b;
+  --accent: #1a2d54;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+html {
+  background: var(--canvas);
+}
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--text-primary);
+  font-family: var(--font-chrome);
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.reader-body {
+  color: var(--text-primary);
+  max-width: 52ch;
+  letter-spacing: 0.045em;
+  word-spacing: 0.16em;
+  font-variant-ligatures: none;
+}
+
+.reader-body p {
+  margin: 0 0 0.85em;
+}
+
+.reader-body p:last-child {
+  margin-bottom: 0;
+}
+
+.reader-body em,
+.reader-body i {
+  font-style: normal;
+}
+
+.follow-word {
+  background: var(--follow-highlight);
+  border-radius: 0.2em;
+  box-decoration-break: clone;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html[data-reduce-motion="true"] *,
+html[data-reduce-motion="true"] *::before,
+html[data-reduce-motion="true"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
