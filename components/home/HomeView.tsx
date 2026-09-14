@@ -18,11 +18,3 @@ export function HomeView() {
 
   return <FaithHome />;
 }
-
-
-  if (brand.id === "books") {
-    return <BooksHub />;
-  }
-
-  return <FaithHome />;
-}
