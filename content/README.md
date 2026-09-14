@@ -7,6 +7,7 @@ content/
   bible/          # shipped in this MVP
   quran/          # empty hook — add packs later
   torah/          # empty hook — add packs later
+  books/          # secular DecodaBooks packs later
   registry.ts     # brand → stories map
 ```
 
@@ -17,7 +18,7 @@ content/
   slug: string;
   title: string;
   level: number;
-  brand: "bible" | "quran" | "torah";
+  brand: "bible" | "quran" | "torah" | "books";
   pages: Array<{
     id: string;
     body: string;

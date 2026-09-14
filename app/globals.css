@@ -21,6 +21,12 @@
   --accent: #243b6b;
 }
 
+[data-brand="books"] {
+  --canvas: #f4f1ea;
+  --text-primary: #1e1c19;
+  --accent: #3f4f5a;
+}
+
 :root,
 [data-brand] {
   --chrome: color-mix(in srgb, var(--canvas) 86%, var(--text-primary));
@@ -49,6 +55,12 @@
   --canvas: #fffaf2;
   --text-primary: #100e0b;
   --accent: #1a2d54;
+}
+
+[data-brand="books"][data-contrast="high"] {
+  --canvas: #fffaf3;
+  --text-primary: #12110f;
+  --accent: #2c3942;
 }
 
 * {

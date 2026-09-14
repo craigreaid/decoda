@@ -1,15 +1,22 @@
 "use client";
 
+import { PhysicalBooksTeaser } from "@/components/books/PhysicalBooksTeaser";
 import { BrandLink } from "@/components/brand/BrandLink";
 import { useBrand } from "@/components/brand/BrandThemeProvider";
+import { BooksHubHome } from "@/components/home/BooksHubHome";
 import { Disclaimer } from "@/components/reader/Disclaimer";
 import { BrandMark } from "@/components/ui/BrandMark";
-import { BRAND_IDS } from "@/lib/brand/types";
 import { getBrandConfig } from "@/lib/brand/config";
+import { FAITH_BRAND_IDS, isHubBrand } from "@/lib/brand/types";
 import { cn } from "@/lib/cn";
+import Link from "next/link";
 
 export function HomeView() {
   const { brand } = useBrand();
+
+  if (isHubBrand(brand.id)) {
+    return <BooksHubHome brand={brand} />;
+  }
 
   return (
     <div className="min-h-dvh bg-canvas text-text-primary">
@@ -49,6 +56,7 @@ export function HomeView() {
 
         <div className="mt-10 border-t border-line pt-5">
           <Disclaimer />
+          <PhysicalBooksTeaser className="mt-3" />
         </div>
 
         <section className="mt-10" aria-label="Preview other brands">
@@ -60,12 +68,12 @@ export function HomeView() {
             URL, or pick a brand below.
           </p>
           <ul className="mt-4 flex flex-wrap gap-2">
-            {BRAND_IDS.map((id) => {
+            {FAITH_BRAND_IDS.map((id) => {
               const option = getBrandConfig(id);
               const current = option.id === brand.id;
               return (
                 <li key={id}>
-                  <a
+                  <Link
                     href={`/?brand=${id}`}
                     className={cn(
                       "inline-flex min-h-tap items-center rounded-full px-4 text-sm font-semibold no-underline",
@@ -75,11 +83,19 @@ export function HomeView() {
                     )}
                   >
                     {option.displayName}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
           </ul>
+          <p className="font-chrome mt-4 text-sm leading-relaxed text-muted">
+            <Link
+              href="/?brand=books"
+              className="text-muted underline-offset-4 hover:text-text-primary hover:underline"
+            >
+              More from DecodaBooks
+            </Link>
+          </p>
         </section>
       </main>
     </div>
