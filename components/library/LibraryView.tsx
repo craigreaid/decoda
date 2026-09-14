@@ -1,10 +1,12 @@
 "use client";
 
+import { PhysicalBooksTeaser } from "@/components/books/PhysicalBooksTeaser";
 import { BrandLink } from "@/components/brand/BrandLink";
 import { useBrand } from "@/components/brand/BrandThemeProvider";
 import { StoryCard } from "@/components/library/StoryCard";
 import { Disclaimer } from "@/components/reader/Disclaimer";
 import { BrandMark } from "@/components/ui/BrandMark";
+import { isFaithBrand } from "@/lib/brand/types";
 import { cn } from "@/lib/cn";
 import { withBrandQuery } from "@/lib/href";
 import { getLevelsForStories } from "@/lib/stories";
@@ -82,7 +84,8 @@ export function LibraryView({ stories }: { stories: Story[] }) {
         )}
 
         <div className="mt-10 border-t border-line pt-4">
-          <Disclaimer />
+          {isFaithBrand(brand.id) ? <Disclaimer /> : null}
+          <PhysicalBooksTeaser className={isFaithBrand(brand.id) ? "mt-3" : undefined} />
         </div>
       </main>
     </div>

@@ -5,6 +5,7 @@ import type { BrandConfig, BrandId } from "./types";
  * bible  #1F1A14 on #F7F0E4 ≈ 15.4:1
  * quran  #14201A on #EEF5F0 ≈ 15.8:1
  * torah  #1A1814 on #F3EEE6 ≈ 16.0:1
+ * books  #1E1C19 on #F4F1EA ≈ 15.2:1
  */
 export const BRANDS: Record<BrandId, BrandConfig> = {
   bible: {
@@ -66,6 +67,26 @@ export const BRANDS: Record<BrandId, BrandConfig> = {
       comingSoonNote: "More stories are coming.",
     },
   },
+  books: {
+    id: "books",
+    displayName: "DecodaBooks",
+    domain: "decodabooks.com",
+    theme: {
+      canvas: "#F4F1EA",
+      text: "#1E1C19",
+      accent: "#3F4F5A",
+    },
+    copy: {
+      tagline: "Decodable early readers for every family",
+      homeHeadline: "Calm books. Many paths.",
+      homeLead:
+        "DecodaBooks is the umbrella home for secular early-reader stories, with pathways to faith brands. Physical bound books are coming soon.",
+      libraryTitle: "Story library",
+      libraryLead: "Secular early-reader stories will appear here.",
+      comingSoon: true,
+      comingSoonNote: "Early-reader stories are coming.",
+    },
+  },
 };
 
 export function getBrandConfig(id: BrandId): BrandConfig {
@@ -79,4 +100,6 @@ export const PRODUCTION_HOSTS: Record<string, BrandId> = {
   "www.decodaquran.com": "quran",
   "decodatorah.com": "torah",
   "www.decodatorah.com": "torah",
+  "decodabooks.com": "books",
+  "www.decodabooks.com": "books",
 };

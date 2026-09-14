@@ -25,7 +25,7 @@ export function brandFromHost(host: string | null | undefined): BrandId | null {
 /**
  * Resolution order for local/dev and production:
  * 1. ?brand= override
- * 2. Host header (decodabible.com, decodaquran.com, decodatorah.com)
+ * 2. Host header (decodabible.com, decodaquran.com, decodatorah.com, decodabooks.com)
  * 3. BRAND env
  * 4. last-used cookie
  * 5. bible
