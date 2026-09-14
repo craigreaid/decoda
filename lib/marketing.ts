@@ -25,7 +25,7 @@ export const PATHWAY_CARDS: Array<{
     name: "DecodaBible",
     description:
       "Short decodable Bible stories. Level 1 is in the library now.",
-    href: "/library?brand=bible",
+    href: "/?brand=bible",
   },
   {
     id: "quran",
