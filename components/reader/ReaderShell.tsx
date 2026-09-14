@@ -193,7 +193,7 @@ export function ReaderShell({
 
   return (
     <div className="flex min-h-dvh flex-col bg-canvas text-text-primary">
-      <header className="sticky top-0 z-20 flex h-14 items-center justify-between gap-2 border-b border-line bg-chrome px-3 sm:px-4">
+      <header className="sticky top-0 z-20 flex min-h-16 items-center justify-between gap-2 border-b border-line bg-canvas px-3 sm:px-4">
         <BrandMark name={brand.displayName} href={withBrandQuery("/", brandQuery)} compact />
         <div className="flex items-center gap-2">
           <AudioControl

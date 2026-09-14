@@ -13,10 +13,10 @@ export function SoftRedirect({ href }: { href: string }) {
 
   return (
     <main className="mx-auto flex min-h-dvh w-full max-w-reader flex-col justify-center px-4">
-      <h1 className="font-chrome text-2xl font-semibold text-text-primary">
+      <h1 className="font-display text-2xl font-semibold text-text-primary">
         That story is not in the library
       </h1>
-      <p className="font-chrome mt-3 text-base leading-relaxed text-text-primary">
+      <p className="mt-3 text-base leading-reading tracking-reading text-text-primary">
         Taking you back to the story list.
       </p>
       <BrandLink

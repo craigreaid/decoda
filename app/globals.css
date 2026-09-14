@@ -2,53 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-:root,
+:root {
+  --canvas: #f7f3ec;
+  --paper: #fffcf7;
+  --text-primary: #2c2a26;
+  --text-muted: #5c574e;
+  --line: #e4dfd4;
+  --focus: #4a6fa5;
+  --accent: #5b7c6e;
+  --accent-soft: #dce8e2;
+  --accent-deep: #2f3f38;
+}
+
+[data-brand="books"] {
+  --accent: #5b7c6e;
+  --accent-soft: #dce8e2;
+  --accent-deep: #2f3f38;
+}
+
 [data-brand="bible"] {
-  --canvas: #f7f0e4;
-  --text-primary: #1f1a14;
-  --accent: #0f5c62;
+  --accent: #4a6fa5;
+  --accent-soft: #dce6f2;
+  --accent-deep: #2a3a52;
 }
 
 [data-brand="quran"] {
-  --canvas: #eef5f0;
-  --text-primary: #14201a;
-  --accent: #1f6b4a;
+  --accent: #3d7a6a;
+  --accent-soft: #d8ebe4;
+  --accent-deep: #24453c;
 }
 
 [data-brand="torah"] {
-  --canvas: #f3eee6;
-  --text-primary: #1a1814;
-  --accent: #243b6b;
+  --accent: #8b6b3d;
+  --accent-soft: #f0e6d4;
+  --accent-deep: #4a3a22;
 }
 
 :root,
 [data-brand] {
-  --chrome: color-mix(in srgb, var(--canvas) 86%, var(--text-primary));
-  --text-muted: color-mix(in srgb, var(--text-primary) 72%, var(--canvas));
-  --line: color-mix(in srgb, var(--text-primary) 16%, var(--canvas));
-  --accent-soft: color-mix(in srgb, var(--accent) 16%, var(--canvas));
-  --follow-highlight: color-mix(in srgb, var(--accent) 24%, var(--canvas));
-  --on-accent: #ffffff;
-  --shadow: color-mix(in srgb, var(--text-primary) 12%, transparent);
-  --font-chrome: var(--font-atkinson), Verdana, sans-serif;
+  --canvas: #f7f3ec;
+  --paper: #fffcf7;
+  --text-primary: #2c2a26;
+  --text-muted: #5c574e;
+  --line: #e4dfd4;
+  --focus: #4a6fa5;
+  --chrome: var(--paper);
+  --follow-highlight: var(--accent-soft);
+  --on-accent: #fffcf7;
+  --shadow: color-mix(in srgb, var(--text-primary) 10%, transparent);
+  --font-display: var(--font-nunito), "Nunito", sans-serif;
+  --font-chrome: var(--font-lexend), "Lexend", sans-serif;
 }
 
-[data-brand="bible"][data-contrast="high"] {
-  --canvas: #fff8ec;
-  --text-primary: #110e0a;
-  --accent: #084247;
-}
-
-[data-brand="quran"][data-contrast="high"] {
-  --canvas: #f4fff8;
-  --text-primary: #0b140f;
-  --accent: #145338;
-}
-
+[data-brand="books"][data-contrast="high"],
+[data-brand="bible"][data-contrast="high"],
+[data-brand="quran"][data-contrast="high"],
 [data-brand="torah"][data-contrast="high"] {
-  --canvas: #fffaf2;
-  --text-primary: #100e0b;
-  --accent: #1a2d54;
+  --canvas: #fffcf7;
+  --paper: #ffffff;
+  --text-primary: #1a1814;
+  --text-muted: #3d3933;
+  --line: #cfc8b8;
+  --accent: var(--accent-deep);
 }
 
 * {
@@ -69,16 +84,45 @@ body {
   background: var(--canvas);
   color: var(--text-primary);
   font-family: var(--font-chrome);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  text-align: left;
   text-rendering: optimizeLegibility;
-}
-
-body {
   overflow-x: hidden;
 }
 
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
+
+p,
+li,
+blockquote {
+  text-align: left;
+  text-wrap: pretty;
+}
+
+a,
+button {
+  transition-property: color, background-color, border-color, box-shadow, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+
 :focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 3px;
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.btn-primary:focus-visible,
+.bg-accent:focus-visible {
+  outline-color: var(--accent-deep);
 }
 
 .reader-body {
@@ -106,6 +150,14 @@ body {
   background: var(--follow-highlight);
   border-radius: 0.2em;
   box-decoration-break: clone;
+}
+
+.prose-reading {
+  max-width: 65ch;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  text-align: left;
 }
 
 .sr-only {

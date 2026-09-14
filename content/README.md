@@ -4,6 +4,7 @@ Add decodable stories as JSON modules under the brand folder, then export them f
 
 ```
 content/
+  books/          # empty hook — secular packs later
   bible/          # shipped in this MVP
   quran/          # empty hook — add packs later
   torah/          # empty hook — add packs later
@@ -17,7 +18,7 @@ content/
   slug: string;
   title: string;
   level: number;
-  brand: "bible" | "quran" | "torah";
+  brand: "books" | "bible" | "quran" | "torah";
   pages: Array<{
     id: string;
     body: string;

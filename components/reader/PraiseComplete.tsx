@@ -5,8 +5,8 @@ import { BrandLink } from "@/components/brand/BrandLink";
 export function PraiseComplete({ title }: { title: string }) {
   return (
     <section className="mx-auto flex min-h-[60dvh] w-full max-w-reader flex-col items-start justify-center px-1 py-8">
-      <p className="font-chrome text-sm font-semibold text-accent">You did it</p>
-      <h1 className="font-chrome mt-3 text-3xl font-semibold tracking-tight text-text-primary">
+      <p className="font-chrome text-sm font-semibold text-accent-deep">You did it</p>
+      <h1 className="font-display mt-3 text-3xl font-semibold tracking-tight text-text-primary">
         You read the whole story.
       </h1>
       <p className="font-chrome mt-4 text-lg leading-relaxed text-text-primary">
