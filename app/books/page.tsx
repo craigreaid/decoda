@@ -1,20 +1,12 @@
-import { BooksComingSoon } from "@/components/books/BooksComingSoon";
-import { getRequestBrandConfig } from "@/lib/brand/server";
+import { BooksComingSoonView } from "@/components/home/BooksComingSoonView";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Physical books",
-  description: "Coming soon: physical bound Decoda books parents can order.",
+  description:
+    "Bound early readers are on the way. This site is an early preview of the reading experience while we get stories and print ready.",
 };
 
-export default async function BooksPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ brand?: string | string[] }>;
-}) {
-  const brand = await getRequestBrandConfig();
-  const params = await searchParams;
-  const brandQuery = typeof params.brand === "string" ? params.brand : null;
-
-  return <BooksComingSoon brand={brand} brandQuery={brandQuery} />;
+export default function BooksPage() {
+  return <BooksComingSoonView />;
 }

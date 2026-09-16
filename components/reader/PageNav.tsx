@@ -28,7 +28,7 @@ export function PageNav({
           disabled={atStart}
           className={cn(
             "inline-flex min-h-tap min-w-[48px] items-center justify-center rounded-full px-4 text-sm font-semibold",
-            "border border-line bg-chrome text-text-primary",
+            "border border-line bg-paper text-text-primary",
             "disabled:cursor-not-allowed disabled:opacity-40",
           )}
         >

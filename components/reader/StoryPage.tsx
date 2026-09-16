@@ -24,7 +24,7 @@ export function StoryPage({
 
   return (
     <article className="mx-auto w-full max-w-reader">
-      <h1 className="font-chrome mb-6 text-xl font-semibold tracking-tight text-text-primary sm:text-2xl">
+      <h1 className="font-display mb-6 text-xl font-semibold tracking-tight text-text-primary sm:text-2xl">
         {title}
       </h1>
       <ReaderTypography>

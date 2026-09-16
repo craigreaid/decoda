@@ -1,19 +1,17 @@
 # Decoda
 
-Decodable stories for kids learning to read and kids with dyslexia.
+A calm multi-brand reader for kids learning to read and kids with dyslexia.
 
-One Next.js app serves an umbrella hub plus three faith brands. The same reader chrome and canvas are tinted by CSS variables (`data-brand` on `<html>`).
+One Next.js app serves four brands. Shared cream, paper, and ink tokens stay the same; `data-brand` on `<html>` tints accents.
 
-| Brand        | Domain            | Brand id | MVP content      |
-| ------------ | ----------------- | -------- | ---------------- |
-| DecodaBooks  | decodabooks.com   | `books`  | Hub + coming soon |
-| DecodaBible  | decodabible.com   | `bible`  | Level 1 stories  |
-| DecodaQuran  | decodaquran.com   | `quran`  | Theme hooks only |
-| DecodaTorah  | decodatorah.com   | `torah`  | Theme hooks only |
+| Brand        | Domain            | Brand id | Content                          |
+| ------------ | ----------------- | -------- | -------------------------------- |
+| DecodaBooks  | decodabooks.com   | `books`  | Hub + secular pack (coming soon) |
+| DecodaBible  | decodabible.com   | `bible`  | Level 1 stories                  |
+| DecodaQuran  | decodaquran.com   | `quran`  | Theme shell                      |
+| DecodaTorah  | decodatorah.com   | `torah`  | Theme shell                      |
 
-**decodabooks.com** is planned as the umbrella host: secular early-reader books plus pathways to the faith brands. Faith domains stay on their own sites. Physical print is previewed at `/books` (coming soon — not for sale yet).
-
-Stories on faith brands are **adapted literacy content**, not scripture quotes. Those products always show:
+Faith-brand stories are **adapted literacy content**, not scripture quotes. Those brands show:
 
 > Adapted story for learning to read — not a scripture quote.
 
@@ -37,28 +35,27 @@ Requires Node 20+.
 
 Brand is resolved in this order:
 
-1. `?brand=bible|quran|torah|books` (local/dev override, kept on in-app links)
-2. `Host` header (`decodabible.com` → bible, `decodaquran.com` → quran, `decodatorah.com` → torah, `decodabooks.com` → books)
+1. `?brand=books|bible|quran|torah` (local/dev override, kept on in-app links)
+2. `Host` header (`decodabooks.com` → books, `decodabible.com` → bible, `decodaquran.com` → quran, `decodatorah.com` → torah)
 3. `BRAND` env (see `.env.example`)
 4. Last-used `decoda-brand` cookie
-5. `bible`
+5. `books`
 
 Examples:
 
+- [http://localhost:3000/](http://localhost:3000/) — DecodaBooks hub
 - [http://localhost:3000/?brand=bible](http://localhost:3000/?brand=bible)
 - [http://localhost:3000/library?brand=quran](http://localhost:3000/library?brand=quran)
 - [http://localhost:3000/?brand=torah](http://localhost:3000/?brand=torah)
 - [http://localhost:3000/?brand=books](http://localhost:3000/?brand=books)
 - [http://localhost:3000/books](http://localhost:3000/books) — physical books coming-soon page
 
-The home page also has a “Preview brands” row on faith brands. The DecodaBooks hub home links to Bible, Quran, and Torah with `?brand=`.
-
 ## Reader
 
-- `/` — brand-aware landing (faith reader home, or DecodaBooks hub)
+- `/` — brand-aware landing (Books hub, or a faith-brand home)
 - `/library` — leveled story cards, filter by level, Read
 - `/read/[slug]?page=N` — one page at a time; deep links restore the page
-- `/books` — quiet Coming soon preview of physical bound books (single-story Level books and Level collections)
+- `/books` — physical bound books, coming soon
 - Missing slugs send the reader back to `/library`
 - After the last page, a praise screen returns to the library
 
@@ -77,12 +74,14 @@ Audio is a pluggable `AudioEngine`. The MVP adapter uses `speechSynthesis`. Noth
 
 See `content/README.md`.
 
-Quran, Torah, and Books folders are empty on purpose so later packs can drop in without changing the reader.
+Quran, Torah, and DecodaBooks folders can stay empty until a pack is ready. The reader chrome is already wired.
 
 ## Fonts
 
-Body defaults to self-hosted **OpenDyslexic**. Chrome uses **Atkinson Hyperlegible**. The parent toggle also offers **Classic** (Inter). All three are SIL-OFL fonts; files live in `app/fonts/` with a license note.
+Marketing chrome uses **Nunito** (display) and **Lexend** (body/UI) via `next/font/google`.
+
+The reader still defaults to self-hosted **OpenDyslexic**. Parent settings also offer **Atkinson Hyperlegible** and **Classic** (Inter). Those three are SIL-OFL fonts; files live in `app/fonts/` with a license note.
 
 ## Out of scope for this MVP
 
-Parent auth, kid profiles, payments, print ordering, CMS admin, Quran/Torah/secular story packs, attaching DNS for decodabooks.com, and native apps.
+Parent auth, kid profiles, payments, CMS admin, Quran/Torah/Books story packs, print fulfillment, and native apps.

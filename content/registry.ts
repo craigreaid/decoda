@@ -6,6 +6,7 @@ import { quranStories } from "./quran";
 import { torahStories } from "./torah";
 
 export const storiesByBrand: Record<BrandId, Story[]> = {
+  books: booksStories,
   bible: bibleStories,
   quran: quranStories,
   torah: torahStories,
@@ -13,6 +14,7 @@ export const storiesByBrand: Record<BrandId, Story[]> = {
 };
 
 export const allStories: Story[] = [
+  ...booksStories,
   ...bibleStories,
   ...quranStories,
   ...torahStories,

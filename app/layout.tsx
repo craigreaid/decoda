@@ -1,5 +1,5 @@
 import { BrandThemeProvider } from "@/components/brand/BrandThemeProvider";
-import { atkinson, inter, openDyslexic } from "@/app/fonts";
+import { atkinson, inter, lexend, nunito, openDyslexic } from "@/app/fonts";
 import { getRequestBrandConfig } from "@/lib/brand/server";
 import type { Metadata } from "next";
 import { Suspense } from "react";
@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
       default: brand.displayName,
       template: `%s · ${brand.displayName}`,
     },
-    description: brand.copy.tagline,
+    description: brand.copy.homeLead,
     applicationName: brand.displayName,
   };
 }
@@ -28,7 +28,7 @@ export default async function RootLayout({
     <html
       lang="en"
       data-brand={brand.id}
-      className={`${openDyslexic.variable} ${atkinson.variable} ${inter.variable}`}
+      className={`${nunito.variable} ${lexend.variable} ${openDyslexic.variable} ${atkinson.variable} ${inter.variable}`}
     >
       <body className="font-chrome antialiased">
         <Suspense fallback={null}>

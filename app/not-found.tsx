@@ -3,10 +3,10 @@ import { BrandLink } from "@/components/brand/BrandLink";
 export default function NotFound() {
   return (
     <main className="mx-auto flex min-h-dvh w-full max-w-reader flex-col justify-center px-4">
-      <h1 className="font-chrome text-3xl font-semibold text-text-primary">
+      <h1 className="font-display text-3xl font-semibold text-text-primary">
         That page is not here
       </h1>
-      <p className="font-chrome mt-3 text-base leading-relaxed text-text-primary">
+      <p className="mt-3 text-base leading-reading tracking-reading text-text-primary">
         Try the story library.
       </p>
       <BrandLink

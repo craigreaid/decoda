@@ -1,30 +1,77 @@
-import type { BrandConfig, BrandId } from "./types";
+import type { BrandConfig, BrandId, BrandTheme } from "./types";
+
+const SHARED_SURFACE: Pick<
+  BrandTheme,
+  "canvas" | "paper" | "text" | "textMuted" | "line" | "focus"
+> = {
+  canvas: "#F7F3EC",
+  paper: "#FFFCF7",
+  text: "#2C2A26",
+  textMuted: "#5C574E",
+  line: "#E4DFD4",
+  focus: "#4A6FA5",
+};
 
 /**
- * Starter tokens. Body text on canvas is well above 7:1:
- * bible  #1F1A14 on #F7F0E4 ≈ 15.4:1
- * quran  #14201A on #EEF5F0 ≈ 15.8:1
- * torah  #1A1814 on #F3EEE6 ≈ 16.0:1
- * books  #1E1C19 on #F4F1EA ≈ 15.2:1
+ * Brand kit v1. Body ink on cream is above 7:1
+ * (#2C2A26 on #F7F3EC ≈ 13:1).
  */
 export const BRANDS: Record<BrandId, BrandConfig> = {
+  books: {
+    id: "books",
+    displayName: "DecodaBooks",
+    domain: "decodabooks.com",
+    theme: {
+      ...SHARED_SURFACE,
+      accent: "#5B7C6E",
+      accentSoft: "#DCE8E2",
+      accentDeep: "#2F3F38",
+    },
+    copy: {
+      tagline: "Secular early readers, with paths to faith brands",
+      homeHeadline: "Calm books. Many paths.",
+      homeLead:
+        "DecodaBooks is home for secular early-reader stories, with clear pathways to faith brands. Physical bound books are coming soon.",
+      libraryTitle: "Story library",
+      libraryLead: "Everyday decodable stories will appear here.",
+      comingSoon: true,
+      comingSoonNote: "First story pack still being prepared.",
+      valueProps: [
+        "Short, decodable pages — written for beginning readers and kids with dyslexia.",
+        "Everyday stories here — general early readers with no scripture framing.",
+        "Faith on its own brands — Bible, Quran, and Torah stay separate, same careful path.",
+      ],
+      footerLine:
+        "A calm place to practice reading — one short page at a time.",
+      showLiteracyDisclaimer: false,
+    },
+  },
   bible: {
     id: "bible",
     displayName: "DecodaBible",
     domain: "decodabible.com",
     theme: {
-      canvas: "#F7F0E4",
-      text: "#1F1A14",
-      accent: "#0F5C62",
+      ...SHARED_SURFACE,
+      accent: "#4A6FA5",
+      accentSoft: "#DCE6F2",
+      accentDeep: "#2A3A52",
     },
     copy: {
-      tagline: "Decodable stories for kids learning to read",
+      tagline: "A calm reader for beginning readers",
       homeHeadline: "Short stories. Steady steps.",
       homeLead:
         "DecodaBible is a calm reader for beginning readers and kids with dyslexia. Stories use small, decodable pages written for literacy practice.",
       libraryTitle: "Story library",
       libraryLead: "Pick a Level 1 story. Read one page at a time.",
       comingSoon: false,
+      supporting:
+        "Start with Level 1. Each page stays short so a child can read, hear a page, and turn when ready.",
+      highlights: [
+        "Level 1 in the library now",
+        "Short pages built for practice",
+        "Same careful path as DecodaBooks, on a faith brand",
+      ],
+      showLiteracyDisclaimer: true,
     },
   },
   quran: {
@@ -32,19 +79,23 @@ export const BRANDS: Record<BrandId, BrandConfig> = {
     displayName: "DecodaQuran",
     domain: "decodaquran.com",
     theme: {
-      canvas: "#EEF5F0",
-      text: "#14201A",
-      accent: "#1F6B4A",
+      ...SHARED_SURFACE,
+      accent: "#3D7A6A",
+      accentSoft: "#D8EBE4",
+      accentDeep: "#24453C",
     },
     copy: {
-      tagline: "Decodable stories for kids learning to read",
-      homeHeadline: "A calm reader. Stories are on the way.",
+      tagline: "A calm Quran reader",
+      homeHeadline: "A calm Quran reader.",
       homeLead:
         "DecodaQuran will offer short, decodable stories for beginning readers and kids with dyslexia. The first story pack is still being prepared.",
       libraryTitle: "Story library",
       libraryLead: "Levelled stories will appear here.",
       comingSoon: true,
-      comingSoonNote: "More stories are coming.",
+      comingSoonNote: "First story pack still being prepared.",
+      supporting:
+        "Same careful path as DecodaBooks, on its own faith brand.",
+      showLiteracyDisclaimer: true,
     },
   },
   torah: {
@@ -52,19 +103,23 @@ export const BRANDS: Record<BrandId, BrandConfig> = {
     displayName: "DecodaTorah",
     domain: "decodatorah.com",
     theme: {
-      canvas: "#F3EEE6",
-      text: "#1A1814",
-      accent: "#243B6B",
+      ...SHARED_SURFACE,
+      accent: "#8B6B3D",
+      accentSoft: "#F0E6D4",
+      accentDeep: "#4A3A22",
     },
     copy: {
-      tagline: "Decodable stories for kids learning to read",
-      homeHeadline: "A calm reader. Stories are on the way.",
+      tagline: "A calm Torah reader",
+      homeHeadline: "A calm Torah reader.",
       homeLead:
         "DecodaTorah will offer short, decodable stories for beginning readers and kids with dyslexia. The first story pack is still being prepared.",
       libraryTitle: "Story library",
       libraryLead: "Levelled stories will appear here.",
       comingSoon: true,
-      comingSoonNote: "More stories are coming.",
+      comingSoonNote: "First story pack still being prepared.",
+      supporting:
+        "Same careful path as DecodaBooks, on its own faith brand.",
+      showLiteracyDisclaimer: true,
     },
   },
   books: {
@@ -94,6 +149,8 @@ export function getBrandConfig(id: BrandId): BrandConfig {
 }
 
 export const PRODUCTION_HOSTS: Record<string, BrandId> = {
+  "decodabooks.com": "books",
+  "www.decodabooks.com": "books",
   "decodabible.com": "bible",
   "www.decodabible.com": "bible",
   "decodaquran.com": "quran",
