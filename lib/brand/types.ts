@@ -1,9 +1,11 @@
+export const FAITH_BRAND_IDS = ["bible", "quran", "torah"] as const;
 export const BRAND_IDS = ["books", "bible", "quran", "torah"] as const;
 
 export type FaithBrandId = (typeof FAITH_BRAND_IDS)[number];
 export type BrandId = (typeof BRAND_IDS)[number];
 
 export const DEFAULT_BRAND: BrandId = "books";
+export const HUB_BRAND: BrandId = "books";
 
 export type BrandTheme = {
   canvas: string;
@@ -42,4 +44,14 @@ export type BrandConfig = {
 
 export function isBrandId(value: string | null | undefined): value is BrandId {
   return BRAND_IDS.includes(value as BrandId);
+}
+
+export function isFaithBrand(
+  value: string | null | undefined,
+): value is FaithBrandId {
+  return FAITH_BRAND_IDS.includes(value as FaithBrandId);
+}
+
+export function isHubBrand(value: string | null | undefined): value is "books" {
+  return value === HUB_BRAND;
 }

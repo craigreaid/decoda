@@ -122,26 +122,6 @@ export const BRANDS: Record<BrandId, BrandConfig> = {
       showLiteracyDisclaimer: true,
     },
   },
-  books: {
-    id: "books",
-    displayName: "DecodaBooks",
-    domain: "decodabooks.com",
-    theme: {
-      canvas: "#F4F1EA",
-      text: "#1E1C19",
-      accent: "#3F4F5A",
-    },
-    copy: {
-      tagline: "Decodable early readers for every family",
-      homeHeadline: "Calm books. Many paths.",
-      homeLead:
-        "DecodaBooks is the umbrella home for secular early-reader stories, with pathways to faith brands. Physical bound books are coming soon.",
-      libraryTitle: "Story library",
-      libraryLead: "Secular early-reader stories will appear here.",
-      comingSoon: true,
-      comingSoonNote: "Early-reader stories are coming.",
-    },
-  },
 };
 
 export function getBrandConfig(id: BrandId): BrandConfig {
@@ -157,6 +137,4 @@ export const PRODUCTION_HOSTS: Record<string, BrandId> = {
   "www.decodaquran.com": "quran",
   "decodatorah.com": "torah",
   "www.decodatorah.com": "torah",
-  "decodabooks.com": "books",
-  "www.decodabooks.com": "books",
 };
