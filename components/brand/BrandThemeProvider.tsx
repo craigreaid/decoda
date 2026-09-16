@@ -8,6 +8,7 @@ import {
   savePrefs,
   type ReaderPrefs,
 } from "@/lib/prefs";
+import { useSearchParams } from "next/navigation";
 import {
   createContext,
   useCallback,
@@ -41,20 +42,22 @@ export function BrandThemeProvider({
   initialBrandId: BrandId;
   children: ReactNode;
 }) {
-  const [brandId, setBrandId] = useState<BrandId>(initialBrandId);
+  const searchParams = useSearchParams();
+  const queryBrand = searchParams.get("brand");
+  const [brandId, setBrandId] = useState<BrandId>(() =>
+    isBrandId(queryBrand) ? queryBrand : initialBrandId,
+  );
   const [prefs, setPrefsState] = useState<ReaderPrefs>(DEFAULT_PREFS);
   const [prefsReady, setPrefsReady] = useState(false);
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const queryBrand = params.get("brand");
     const nextBrand = isBrandId(queryBrand) ? queryBrand : initialBrandId;
     setBrandId(nextBrand);
     const stored = loadPrefs(nextBrand);
     setPrefsState(stored);
     applyDocumentChrome(nextBrand, stored);
     setPrefsReady(true);
-  }, [initialBrandId]);
+  }, [initialBrandId, queryBrand]);
 
   useEffect(() => {
     if (!prefsReady) return;

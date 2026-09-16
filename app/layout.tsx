@@ -31,9 +31,11 @@ export default async function RootLayout({
       className={`${nunito.variable} ${lexend.variable} ${openDyslexic.variable} ${atkinson.variable} ${inter.variable}`}
     >
       <body className="font-chrome antialiased">
-        <BrandThemeProvider initialBrandId={brand.id}>
-          <Suspense fallback={null}>{children}</Suspense>
-        </BrandThemeProvider>
+        <Suspense fallback={null}>
+          <BrandThemeProvider initialBrandId={brand.id}>
+            {children}
+          </BrandThemeProvider>
+        </Suspense>
       </body>
     </html>
   );

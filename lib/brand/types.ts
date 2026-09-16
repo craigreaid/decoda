@@ -1,5 +1,6 @@
 export const BRAND_IDS = ["books", "bible", "quran", "torah"] as const;
 
+export type FaithBrandId = (typeof FAITH_BRAND_IDS)[number];
 export type BrandId = (typeof BRAND_IDS)[number];
 
 export const DEFAULT_BRAND: BrandId = "books";

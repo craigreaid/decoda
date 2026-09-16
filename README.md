@@ -47,6 +47,8 @@ Examples:
 - [http://localhost:3000/?brand=bible](http://localhost:3000/?brand=bible)
 - [http://localhost:3000/library?brand=quran](http://localhost:3000/library?brand=quran)
 - [http://localhost:3000/?brand=torah](http://localhost:3000/?brand=torah)
+- [http://localhost:3000/?brand=books](http://localhost:3000/?brand=books)
+- [http://localhost:3000/books](http://localhost:3000/books) — physical books coming-soon page
 
 ## Reader
 

@@ -38,6 +38,12 @@
   --accent-deep: #4a3a22;
 }
 
+[data-brand="books"] {
+  --canvas: #f4f1ea;
+  --text-primary: #1e1c19;
+  --accent: #3f4f5a;
+}
+
 :root,
 [data-brand] {
   --canvas: #f7f3ec;
@@ -64,6 +70,12 @@
   --text-muted: #3d3933;
   --line: #cfc8b8;
   --accent: var(--accent-deep);
+}
+
+[data-brand="books"][data-contrast="high"] {
+  --canvas: #fffaf3;
+  --text-primary: #12110f;
+  --accent: #2c3942;
 }
 
 * {

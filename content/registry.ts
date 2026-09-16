@@ -10,6 +10,7 @@ export const storiesByBrand: Record<BrandId, Story[]> = {
   bible: bibleStories,
   quran: quranStories,
   torah: torahStories,
+  books: booksStories,
 };
 
 export const allStories: Story[] = [
@@ -17,4 +18,5 @@ export const allStories: Story[] = [
   ...bibleStories,
   ...quranStories,
   ...torahStories,
+  ...booksStories,
 ];

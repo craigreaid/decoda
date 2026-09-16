@@ -8,6 +8,7 @@ content/
   bible/          # shipped in this MVP
   quran/          # empty hook — add packs later
   torah/          # empty hook — add packs later
+  books/          # secular DecodaBooks packs later
   registry.ts     # brand → stories map
 ```
 
